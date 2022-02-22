@@ -1,21 +1,14 @@
 version: 0.2
 phases:
   install:
-    run-as: root
-      commands:
-        - echo This is a installation
-        - wget https://services.gradle.org/distributions/gradle-7.4-all.zip
-        - unzip -d /opt/gradle gradle-7.4-all.zip
     runtime-versions:
       java: corretto17
   pre_build:
     commands:
       - echo Executing gradle clean
-      - /opt/gradle/gradle-7.4/bin/gradle clean
-      - echo Executing gradle build
-      - /opt/gradle/gradle-7.4/bin/gradle build
-      - echo Executing gradle jar
-      - /opt/gradle/gradle-7.4/bin/gradle jar
+      - ./gradlew clean
+      - echo Executing bootjar
+      - ./gradlew bootJar
       - echo Logging in to Amazon ECR...
       - aws --version
       - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
