@@ -1,0 +1,16 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api/v1.0/tweets
+
+spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      username: ${MONGO_USERNAME:rootuser}
+      password: ${MONGO_PASSWORD:rootpass}
+      database: ${MONGO_DATABASE:tweetsdb}
+      host: ${MONGO_HOST:localhost}
+      port: 27017
+      auto-index-creation: true
+
