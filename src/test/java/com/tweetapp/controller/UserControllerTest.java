@@ -34,17 +34,23 @@ class UserControllerTest {
     @Test
     void testRegisterUser() throws Exception {
         when(userService.registerUser(any(Users.class))).thenReturn(new UserDto());
+        Users users = new Users();
+        users.setEmail("appusai16@gmail.com");
+        users.setPassword("A!m@12ith!s@i");
         mockMvc.perform(post("/register")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(new ObjectMapper().writeValueAsString(new Tweets()))).andExpect(status().isCreated());
+                .content(new ObjectMapper().writeValueAsString(users))).andExpect(status().isCreated());
     }
 
     @Test
     void testLoginUser() throws Exception {
         when(userService.login(any(Users.class))).thenReturn(new UserDto());
+        Users users = new Users();
+        users.setEmail("appusai16@gmail.com");
+        users.setPassword("A!m@12ith!s@i");
         mockMvc.perform(post("/login")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(new ObjectMapper().writeValueAsString(new Tweets())))
+                .content(new ObjectMapper().writeValueAsString(users)))
                 .andExpect(status().isAccepted());
     }
 

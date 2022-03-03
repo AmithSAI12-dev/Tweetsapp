@@ -17,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.util.List;
 
 @Slf4j
@@ -40,7 +41,7 @@ public class UserController {
                     description = "User Already Exists",
                     content = {@Content(mediaType = "application/json")})
     })
-    public ResponseEntity<UserDto> registerUser(@Parameter(description = "Users Pojo Object") @RequestBody Users users) {
+    public ResponseEntity<UserDto> registerUser(@Parameter(description = "Users Pojo Object") @Valid @RequestBody Users users) {
         log.info("Attempting to create new user, {}", UserController.class.toString());
         UserDto userDto = userService.registerUser(users);
         log.info("Successfully created user, {}", TweetsController.class.toString());
@@ -57,7 +58,7 @@ public class UserController {
                     description = "Invalid Username/Password",
                     content = {@Content(mediaType = "application/json")})
     })
-    public ResponseEntity<UserDto> login(@Parameter(description = "Users Pojo Object") @RequestBody Users users, HttpSession session) {
+    public ResponseEntity<UserDto> login(@Parameter(description = "Users Pojo Object") @Valid @RequestBody Users users, HttpSession session) {
         log.info("Attempting to login, {}", UserController.class.toString());
         UserDto login = userService.login(users);
         session.setAttribute("user", login.getEmail());
@@ -96,5 +97,11 @@ public class UserController {
         List<Users> users = userService.retrieveAll(page, size);
         log.info("Successfully retrieved all user, {}", UserController.class.toString());
         return new ResponseEntity<>(users, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/users/logout")
+    public ResponseEntity<String> logout(HttpSession session) {
+        session.removeAttribute("user");
+        return new ResponseEntity<>("Successfully logged out", HttpStatus.OK);
     }
 }
