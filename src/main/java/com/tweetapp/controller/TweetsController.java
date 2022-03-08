@@ -20,6 +20,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
+@CrossOrigin(origins = "*")
 public class TweetsController {
 
     private final TweetsService tweetsService;
@@ -43,10 +44,11 @@ public class TweetsController {
                                                      @Parameter( description = "Page Number") @RequestParam int page,
                                                      HttpSession session) throws NoDataAvailableException {
         log.info("Attempting to fetch all tweets, {}", TweetsController.class.toString());
-        if(null==session.getAttribute("user") || session.getAttribute("user").equals("")) {
-            log.warn("User Not Authenticated, {}", TweetsController.class.toString());
-            throw new NoDataAvailableException("Please Login");
-        }
+//        log.info("Session :{}, class: {}", session.getAttribute("user"), TweetsController.class.toString());
+//        if(null==session.getAttribute("user") || session.getAttribute("user").equals("")) {
+//            log.warn("User Not Authenticated, {}", TweetsController.class.toString());
+//            throw new NoDataAvailableException("Please Login");
+//        }
         List<Tweets> tweets = tweetsService.getAllTweets(page, size);
         log.info("Successfully retrieved all tweets, {}", TweetsController.class.toString());
         return new ResponseEntity<>(tweets, HttpStatus.OK);
@@ -65,16 +67,16 @@ public class TweetsController {
     public ResponseEntity<List<Tweets>> getAllTweetsByUser(@Parameter(description = "Email Id of the user") @RequestParam String email,
                                                            HttpSession session) throws NoDataAvailableException {
         log.info("Attempting to fetch all tweets by user, {}", TweetsController.class.toString());
-        if(null==session.getAttribute("user") || session.getAttribute("user").equals("")) {
-            log.warn("User Not Authenticated, {}", TweetsController.class.toString());
-            throw new NoDataAvailableException("Please Login");
-        }
+//        if(null==session.getAttribute("user") || session.getAttribute("user").equals("")) {
+//            log.warn("User Not Authenticated, {}", TweetsController.class.toString());
+//            throw new NoDataAvailableException("Please Login");
+//        }
         List<Tweets> tweetsByUser = tweetsService.getTweetsByUser(email);
         log.info("Successfully retrieved tweets, {}", TweetsController.class.toString());
         return new ResponseEntity<>(tweetsByUser, HttpStatus.OK);
     }
 
-    @PostMapping(value = "/{username}/add")
+    @PostMapping(value = "/add")
     @Operation(summary = "Post new tweet")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201",
@@ -84,14 +86,14 @@ public class TweetsController {
                     description = "Tweet already exists",
                     content = {@Content(mediaType = "application/json")})
     })
-    public ResponseEntity<TweetsDto> postTweet(@Parameter(description = "Email Id of the user") @PathVariable("username") String email,
+    public ResponseEntity<TweetsDto> postTweet(@Parameter(description = "Email Id of the user") @RequestParam("username") String email,
                                                @Parameter(description = "Tweets POJO object") @RequestBody Tweets tweets,
                                                HttpSession session) throws NoDataAvailableException {
         log.info("Attempting to create new tweet, {}", TweetsController.class.toString());
-        if(null==session.getAttribute("user") || session.getAttribute("user").equals("")) {
-            log.warn("User Not Authenticated, {}", TweetsController.class.toString());
-            throw new NoDataAvailableException("Please Login");
-        }
+//        if(null==session.getAttribute("user") || session.getAttribute("user").equals("")) {
+//            log.warn("User Not Authenticated, {}", TweetsController.class.toString());
+//            throw new NoDataAvailableException("Please Login");
+//        }
         TweetsDto tweetsDto = tweetsService.saveTweet(tweets);
         log.info("Successfully created new tweet, {}", TweetsController.class.toString());
         return new ResponseEntity<>(tweetsDto, HttpStatus.CREATED);
@@ -112,10 +114,10 @@ public class TweetsController {
                                                  @Parameter(description = "Tweets Pojo Object") @RequestBody Tweets tweets,
                                                  HttpSession session) throws NoDataAvailableException {
         log.info("Attempting to Update Tweet, {}", TweetsController.class.toString());
-        if(null==session.getAttribute("user") || session.getAttribute("user").equals("")) {
-            log.warn("User Not Authenticated, {}", TweetsController.class.toString());
-            throw new NoDataAvailableException("Please Login");
-        }
+//        if(null==session.getAttribute("user") || session.getAttribute("user").equals("")) {
+//            log.warn("User Not Authenticated, {}", TweetsController.class.toString());
+//            throw new NoDataAvailableException("Please Login");
+//        }
         TweetsDto tweetsDto = tweetsService.updateTweet(tweets);
         log.info("Successfully Updated Tweet, {}", TweetsController.class.toString());
         return new ResponseEntity<>(tweetsDto, HttpStatus.CREATED);
@@ -135,10 +137,10 @@ public class TweetsController {
                                               @Parameter(description = "Tweet ID") @PathVariable("tweetId") String tweetId,
                                               HttpSession session) throws NoDataAvailableException {
         log.info("Attempting to delete tweet, {}", TweetsController.class.toString());
-        if(null==session.getAttribute("user") || session.getAttribute("user").equals("")) {
-            log.warn("User Not Authenticated, {}", TweetsController.class.toString());
-            throw new NoDataAvailableException("Please Login");
-        }
+//        if(null==session.getAttribute("user") || session.getAttribute("user").equals("")) {
+//            log.warn("User Not Authenticated, {}", TweetsController.class.toString());
+//            throw new NoDataAvailableException("Please Login");
+//        }
         tweetsService.deleteTweet(email, tweetId);
         log.info("Successfully deleted tweet, {}", TweetsController.class.toString());
         return new ResponseEntity<>("Successfully deleted", HttpStatus.OK);

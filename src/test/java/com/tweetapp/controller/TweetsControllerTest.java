@@ -31,7 +31,6 @@ class TweetsControllerTest {
     void testGetAllTweets() throws Exception {
         when(tweetsService.getAllTweets(anyInt(), anyInt())).thenReturn(Collections.singletonList(new Tweets()));
         mockMvc.perform(get("/all")
-                        .sessionAttr("user", "user")
                 .param("size", "10")
                 .param("page", "0")).andExpect(status().isOk());
     }
@@ -40,7 +39,6 @@ class TweetsControllerTest {
     void testGetAllTweets_ErrorStatus() throws Exception {
         when(tweetsService.getAllTweets(anyInt(), anyInt())).thenReturn(Collections.singletonList(new Tweets()));
         mockMvc.perform(get("/all")
-                .param("size", "10")
                 .param("page", "0")).andExpect(status().isBadRequest());
     }
 
@@ -48,22 +46,22 @@ class TweetsControllerTest {
     void testGetAllTweetsByUser() throws Exception {
         when(tweetsService.getTweetsByUser(anyString())).thenReturn(Collections.singletonList(new Tweets()));
         mockMvc.perform(get("/username")
-                .sessionAttr("user", "user")
+//                .sessionAttr("user", "user")
                 .param("email", "mock Email")).andExpect(status().isOk());
     }
 
     @Test
     void testGetAllTweetsByUser_errorStatus() throws Exception {
         when(tweetsService.getTweetsByUser(anyString())).thenReturn(Collections.singletonList(new Tweets()));
-        mockMvc.perform(get("/username")
-                .param("email", "mock Email")).andExpect(status().isBadRequest());
+        mockMvc.perform(get("/username")).andExpect(status().isBadRequest());
     }
 
     @Test
     void testPostTweet() throws Exception {
         when(tweetsService.saveTweet(any(Tweets.class))).thenReturn(new TweetsDto());
-        mockMvc.perform(post("/{username}/add", "user")
-                .sessionAttr("user", "user")
+        mockMvc.perform(post("/add")
+//                .sessionAttr("user", "user")
+                        .param("username", "test")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(new Tweets())))
                 .andExpect(status().isCreated());
@@ -72,17 +70,18 @@ class TweetsControllerTest {
     @Test
     void testPostTweet_errorStatus() throws Exception {
         when(tweetsService.saveTweet(any(Tweets.class))).thenReturn(new TweetsDto());
-        mockMvc.perform(post("/{username}/add", "user")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(new ObjectMapper().writeValueAsString(new Tweets())))
-                .andExpect(status().isBadRequest());
+        mockMvc.perform(post("/add")
+                        .param("username", "test")
+//                        .contentType(MediaType.APPLICATION_JSON)
+//                        .content(new ObjectMapper().writeValueAsString(new Tweets())))
+        ).andExpect(status().isBadRequest());
     }
 
     @Test
     void testUpdateTweet() throws Exception{
         when(tweetsService.updateTweet(any(Tweets.class))).thenReturn(new TweetsDto());
         mockMvc.perform(put("/{username}/update/{tweetId}", "user", "tweetId")
-                        .sessionAttr("user", "user")
+//                        .sessionAttr("user", "user")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(new ObjectMapper().writeValueAsString(new Tweets())))
                 .andExpect(status().isCreated());
@@ -92,24 +91,24 @@ class TweetsControllerTest {
     void testUpdateTweet_errorStatus() throws Exception{
         when(tweetsService.updateTweet(any(Tweets.class))).thenReturn(new TweetsDto());
         mockMvc.perform(put("/{username}/update/{tweetId}", "user", "tweetId")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(new ObjectMapper().writeValueAsString(new Tweets())))
-                .andExpect(status().isBadRequest());
+//                        .contentType(MediaType.APPLICATION_JSON)
+//                        .content(new ObjectMapper().writeValueAsString(new Tweets())))
+        ).andExpect(status().isBadRequest());
     }
 
     @Test
     void testDeleteTweet() throws Exception {
         doNothing().when(tweetsService).deleteTweet(anyString(), anyString());
         mockMvc.perform(delete("/{username}/delete/{tweetId}", "user", "tweetId")
-                .sessionAttr("user", "user")
+//                .sessionAttr("user", "user")
                 ).andExpect(status().isOk());
     }
-
-    @Test
-    void testDeleteTweet_errorStatus() throws Exception {
-        doNothing().when(tweetsService).deleteTweet(anyString(), anyString());
-        mockMvc.perform(delete("/{username}/delete/{tweetId}", "user", "tweetId")
-        ).andExpect(status().isBadRequest());
-    }
+//
+//    @Test
+//    void testDeleteTweet_errorStatus() throws Exception {
+//        doNothing().when(tweetsService).deleteTweet(anyString(), anyString());
+//        mockMvc.perform(delete("/{username}/delete/{tweetId}", "user", "tweetId")
+//        ).andExpect(status().isBadRequest());
+//    }
 
 }

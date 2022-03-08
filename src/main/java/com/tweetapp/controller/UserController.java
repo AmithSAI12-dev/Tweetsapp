@@ -22,6 +22,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
+@CrossOrigin("http://localhost:3000")
 public class UserController {
 
     private final UserService userService;
@@ -63,6 +64,7 @@ public class UserController {
         UserDto login = userService.login(users);
         session.setAttribute("user", login.getEmail());
         log.info("Successfully logged in, {}", UserController.class.toString());
+        log.info("Session :{}, class: {}", session.getAttribute("user"), UserController.class.toString());
         return new ResponseEntity<>(login, HttpStatus.ACCEPTED);
     }
 

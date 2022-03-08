@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - TweetsServiceTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>TweetsServiceTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.tweetapp.service.html">com.tweetapp.service</a> &gt; TweetsServiceTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">8</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.162s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">testDeleteTweet()</td>
+<td class="success">0.138s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testGetAllTweets()</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testGetAllTweets_throwsException()</td>
+<td class="success">0.005s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testGetTweetByUser()</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testGetTweetsByUser_throwsException()</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testSaveTweet()</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testUpdateTweet()</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testUpdateTweet_throwsException()</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2022-03-08 17:30:35.262  INFO 93500 --- [    Test worker] com.tweetapp.service.TweetsService       : Attempting to Update Tweet, class com.tweetapp.service.TweetsService
+2022-03-08 17:30:35.265  INFO 93500 --- [    Test worker] com.tweetapp.service.TweetsService       : Attempting to fetch all tweets by user, class com.tweetapp.service.TweetsService
+2022-03-08 17:30:35.265  INFO 93500 --- [    Test worker] com.tweetapp.service.TweetsService       : No tweets available, class com.tweetapp.service.TweetsService
+2022-03-08 17:30:35.268  INFO 93500 --- [    Test worker] com.tweetapp.service.TweetsService       : Attempting to Update Tweet, class com.tweetapp.service.TweetsService
+2022-03-08 17:30:35.269  INFO 93500 --- [    Test worker] com.tweetapp.service.TweetsService       : Successfully Updated Tweet, class com.tweetapp.service.TweetsService
+2022-03-08 17:30:35.274  INFO 93500 --- [    Test worker] com.tweetapp.service.TweetsService       : Attempting to fetch all tweets, class com.tweetapp.service.TweetsService
+2022-03-08 17:30:35.275  INFO 93500 --- [    Test worker] com.tweetapp.service.TweetsService       : No tweets found, class com.tweetapp.service.TweetsService
+2022-03-08 17:30:35.277  INFO 93500 --- [    Test worker] com.tweetapp.service.TweetsService       : Attempting to fetch all tweets, class com.tweetapp.service.TweetsService
+2022-03-08 17:30:35.278  INFO 93500 --- [    Test worker] com.tweetapp.service.TweetsService       : Successfully retrieved all tweets, class com.tweetapp.service.TweetsService
+2022-03-08 17:30:35.281  INFO 93500 --- [    Test worker] com.tweetapp.service.TweetsService       : Attempting to create new tweet, class com.tweetapp.service.TweetsService
+2022-03-08 17:30:35.281  INFO 93500 --- [    Test worker] com.tweetapp.service.TweetsService       : Successfully created new tweet, class com.tweetapp.service.TweetsService
+2022-03-08 17:30:35.283  INFO 93500 --- [    Test worker] com.tweetapp.service.TweetsService       : Attempting to fetch all tweets by user, class com.tweetapp.service.TweetsService
+2022-03-08 17:30:35.283  INFO 93500 --- [    Test worker] com.tweetapp.service.TweetsService       : Successfully retrieved tweets, class com.tweetapp.service.TweetsService
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 7.3.3</a> at 08-Mar-2022, 5:30:35 pm</p>
+</div>
+</div>
+</body>
+</html>
