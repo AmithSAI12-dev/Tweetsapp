@@ -80,8 +80,10 @@ class TweetsControllerTest {
     @Test
     void testUpdateTweet() throws Exception{
         when(tweetsService.updateTweet(any(Tweets.class))).thenReturn(new TweetsDto());
-        mockMvc.perform(put("/{username}/update/{tweetId}", "user", "tweetId")
+        mockMvc.perform(put("/update" )
 //                        .sessionAttr("user", "user")
+                        .param("username", "user")
+                        .param("tweetId", "id")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(new ObjectMapper().writeValueAsString(new Tweets())))
                 .andExpect(status().isCreated());
@@ -90,7 +92,9 @@ class TweetsControllerTest {
     @Test
     void testUpdateTweet_errorStatus() throws Exception{
         when(tweetsService.updateTweet(any(Tweets.class))).thenReturn(new TweetsDto());
-        mockMvc.perform(put("/{username}/update/{tweetId}", "user", "tweetId")
+        mockMvc.perform(put("/update")
+                        .param("username", "user")
+                        .param("tweetId", "id")
 //                        .contentType(MediaType.APPLICATION_JSON)
 //                        .content(new ObjectMapper().writeValueAsString(new Tweets())))
         ).andExpect(status().isBadRequest());
@@ -99,7 +103,9 @@ class TweetsControllerTest {
     @Test
     void testDeleteTweet() throws Exception {
         doNothing().when(tweetsService).deleteTweet(anyString(), anyString());
-        mockMvc.perform(delete("/{username}/delete/{tweetId}", "user", "tweetId")
+        mockMvc.perform(delete("/delete")
+                        .param("username", "user")
+                        .param("tweetId", "id")
 //                .sessionAttr("user", "user")
                 ).andExpect(status().isOk());
     }

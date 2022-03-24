@@ -44,11 +44,6 @@ public class TweetsController {
                                                      @Parameter( description = "Page Number") @RequestParam int page,
                                                      HttpSession session) throws NoDataAvailableException {
         log.info("Attempting to fetch all tweets, {}", TweetsController.class.toString());
-//        log.info("Session :{}, class: {}", session.getAttribute("user"), TweetsController.class.toString());
-//        if(null==session.getAttribute("user") || session.getAttribute("user").equals("")) {
-//            log.warn("User Not Authenticated, {}", TweetsController.class.toString());
-//            throw new NoDataAvailableException("Please Login");
-//        }
         List<Tweets> tweets = tweetsService.getAllTweets(page, size);
         log.info("Successfully retrieved all tweets, {}", TweetsController.class.toString());
         return new ResponseEntity<>(tweets, HttpStatus.OK);
@@ -67,10 +62,6 @@ public class TweetsController {
     public ResponseEntity<List<Tweets>> getAllTweetsByUser(@Parameter(description = "Email Id of the user") @RequestParam String email,
                                                            HttpSession session) throws NoDataAvailableException {
         log.info("Attempting to fetch all tweets by user, {}", TweetsController.class.toString());
-//        if(null==session.getAttribute("user") || session.getAttribute("user").equals("")) {
-//            log.warn("User Not Authenticated, {}", TweetsController.class.toString());
-//            throw new NoDataAvailableException("Please Login");
-//        }
         List<Tweets> tweetsByUser = tweetsService.getTweetsByUser(email);
         log.info("Successfully retrieved tweets, {}", TweetsController.class.toString());
         return new ResponseEntity<>(tweetsByUser, HttpStatus.OK);
@@ -90,16 +81,12 @@ public class TweetsController {
                                                @Parameter(description = "Tweets POJO object") @RequestBody Tweets tweets,
                                                HttpSession session) throws NoDataAvailableException {
         log.info("Attempting to create new tweet, {}", TweetsController.class.toString());
-//        if(null==session.getAttribute("user") || session.getAttribute("user").equals("")) {
-//            log.warn("User Not Authenticated, {}", TweetsController.class.toString());
-//            throw new NoDataAvailableException("Please Login");
-//        }
         TweetsDto tweetsDto = tweetsService.saveTweet(tweets);
         log.info("Successfully created new tweet, {}", TweetsController.class.toString());
         return new ResponseEntity<>(tweetsDto, HttpStatus.CREATED);
     }
 
-    @PutMapping(value = "/{username}/update/{tweetId}")
+    @PutMapping(value = "/update")
     @Operation(summary = "Update Tweet")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201",
@@ -109,21 +96,17 @@ public class TweetsController {
                     description = "Tweet does not exists",
                     content = {@Content(mediaType = "application/json")})
     })
-    public ResponseEntity<TweetsDto> updateTweet(@Parameter(description = "Email Id of the user") @PathVariable(value = "username", required = false) String username,
-                                                 @Parameter(description = "Tweet ID") @PathVariable(value = "tweetId", required = false) String tweetId,
+    public ResponseEntity<TweetsDto> updateTweet(@Parameter(description = "Email Id of the user") @RequestParam(value = "username", required = false) String username,
+                                                 @Parameter(description = "Tweet ID") @RequestParam(value = "tweetId", required = false) String tweetId,
                                                  @Parameter(description = "Tweets Pojo Object") @RequestBody Tweets tweets,
                                                  HttpSession session) throws NoDataAvailableException {
         log.info("Attempting to Update Tweet, {}", TweetsController.class.toString());
-//        if(null==session.getAttribute("user") || session.getAttribute("user").equals("")) {
-//            log.warn("User Not Authenticated, {}", TweetsController.class.toString());
-//            throw new NoDataAvailableException("Please Login");
-//        }
         TweetsDto tweetsDto = tweetsService.updateTweet(tweets);
         log.info("Successfully Updated Tweet, {}", TweetsController.class.toString());
         return new ResponseEntity<>(tweetsDto, HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/{username}/delete/{tweetId}")
+    @DeleteMapping("/delete")
     @Operation(summary = "Delete Tweet")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200",
@@ -133,14 +116,10 @@ public class TweetsController {
                     description = "Tweet does not exists",
                     content = {@Content(mediaType = "application/json")})
     })
-    public ResponseEntity<String> deleteTweet(@Parameter(description = "Email Id of the user") @PathVariable("username") String email,
-                                              @Parameter(description = "Tweet ID") @PathVariable("tweetId") String tweetId,
+    public ResponseEntity<String> deleteTweet(@Parameter(description = "Email Id of the user") @RequestParam("username") String email,
+                                              @Parameter(description = "Tweet ID") @RequestParam("tweetId") String tweetId,
                                               HttpSession session) throws NoDataAvailableException {
         log.info("Attempting to delete tweet, {}", TweetsController.class.toString());
-//        if(null==session.getAttribute("user") || session.getAttribute("user").equals("")) {
-//            log.warn("User Not Authenticated, {}", TweetsController.class.toString());
-//            throw new NoDataAvailableException("Please Login");
-//        }
         tweetsService.deleteTweet(email, tweetId);
         log.info("Successfully deleted tweet, {}", TweetsController.class.toString());
         return new ResponseEntity<>("Successfully deleted", HttpStatus.OK);

@@ -3,6 +3,17 @@ server:
   servlet:
     context-path: /api/v1.0/tweets
 
+management:
+  server:
+    port: 8080
+  endpoints:
+    web:
+      exposure:
+        include: health, shutdown, prometheus
+  endpoint:
+    shutdown:
+      enabled: true
+
 spring:
   session:
     store-type: mongodb
@@ -17,4 +28,7 @@ spring:
       host: ${MONGO_HOST:localhost}
       port: 27017
       auto-index-creation: true
+
+logging:
+  file: ./application.log
 

@@ -54,7 +54,8 @@ class TweetsServiceTest {
     @Test
     void testUpdateTweet() throws NoDataAvailableException {
         when(tweetsRepository.findById(anyString())).thenReturn(Optional.of(tweets));
-        when(tweetsRepository.save(any(Tweets.class))).thenReturn(tweets);
+        doNothing().when(tweetsRepository).deleteByIdAndEmail(anyString(), anyString());
+        when(tweetsRepository.insert(any(Tweets.class))).thenReturn(tweets);
         TweetsDto tweetsDto = tweetsService.updateTweet(tweets);
         assertEquals(tweetsDto.getEmail(), tweets.getEmail());
         verify(tweetsRepository, atMostOnce()).findById(tweets.getId());

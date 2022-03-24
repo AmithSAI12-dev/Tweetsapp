@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.tweetapp.model.TweetsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-08T12:00:35" hostname="kali" time="0.0">
+<testsuite name="com.tweetapp.model.TweetsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-24T08:38:34" hostname="kali" time="0.003">
   <properties/>
-  <testcase name="testGetterAndSetter()" classname="com.tweetapp.model.TweetsTest" time="0.0"/>
+  <testcase name="testGetterAndSetter()" classname="com.tweetapp.model.TweetsTest" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

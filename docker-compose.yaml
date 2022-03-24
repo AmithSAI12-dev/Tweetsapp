@@ -36,7 +36,76 @@ services:
       - MONGO_DATABASE=tweetsdb
     depends_on:
       - mongodb
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - 4000:3000
+  app-client:
+    build:
+      context:  ../tweetsreact # Use an image built from the specified dockerfile in the `polling-app-client` directory.
+      dockerfile: Dockerfile
+      args:
+        REACT_APP_API_BASE_URL: http://127.0.0.1:3000
+    ports:
+      - "3000:3000" # Map the exposed port 80 on the container to port 9090 on the host machine
+    restart: always
+    depends_on:
+      - api_service
+#  elasticsearch:
+#    image: docker.elastic.co/elasticsearch/elasticsearch:6.2.2
+#    container_name: elasticsearch
+#    environment:
+#      - cluster.name=docker-cluster
+#      - bootstrap.memory_lock=true
+#      - xpack.security.enabled=false
+#      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+#    ulimits:
+#      memlock:
+#        soft: -1
+#        hard: -1
+#      nofile:
+#        soft: 65536
+#        hard: 65536
+#    cap_add:
+#      - IPC_LOCK
+#    volumes:
+#      - esdata1:/usr/share/elasticsearch/data
+#    ports:
+#      - "9200:9200"
+#      - "9300:9300"
+#
+#  logstash:
+#    image: docker.elastic.co/logstash/logstash:6.2.2
+#    container_name: logstash
+#    command: logstash -f /etc/logstash/conf.d/logstash.conf
+#    volumes:
+#      - ./config:/etc/logstash/conf.d
+#    ports:
+#      - "5000:5000"
+#    links:
+#      - elasticsearch
+#
+#  kibana:
+#    image: docker.elastic.co/kibana/kibana:6.2.2
+#    container_name: kibana
+#    environment:
+#      - ELASTICSEARCH_URL=http://localhost:9200
+#    ports:
+#      - "5601:5601"
+#    links:
+#      - elasticsearch
+
 volumes:
+#  esdata1:
+#    driver: local
   data: {}
 
 networks:

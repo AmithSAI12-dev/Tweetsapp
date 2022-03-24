@@ -32,10 +32,11 @@ public class TweetsService {
 
     public TweetsDto updateTweet(Tweets tweets) throws NoDataAvailableException {
         log.info("Attempting to Update Tweet, {}", TweetsService.class.toString());
-        Tweets exists = tweetsRepository.findById(tweets.getId()).stream().findFirst().orElseThrow(() -> new NoDataAvailableException("Tweet Does not exists"));
-        Tweets updatedTweet = tweetsRepository.save(exists);
+        tweetsRepository.findById(tweets.getId()).stream().findFirst().orElseThrow(() -> new NoDataAvailableException("Tweet Does not exists"));
+        tweetsRepository.deleteByIdAndEmail(tweets.getEmail(), tweets.getId());
+        Tweets updatedTweet = tweetsRepository.insert(tweets);
         log.info("Successfully Updated Tweet, {}", TweetsService.class.toString());
-        return new TweetsDto(updatedTweet, "Successfully Updated Tweet");
+        return new TweetsDto(tweets, "Successfully Updated Tweet");
     }
 
     public List<Tweets> getAllTweets(int page, int size) throws NoDataAvailableException {

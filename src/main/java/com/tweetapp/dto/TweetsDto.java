@@ -6,14 +6,16 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class TweetsDto {
+public class    TweetsDto {
 
+    private String id;
     private String message;
     private String tags;
     private String email;
     private String successMessage;
 
     public TweetsDto(Tweets tweets, String successMessage) {
+        this.id=tweets.getId();
         this.message = tweets.getMessage();
         this.tags = tweets.getTags();
         this.email = tweets.getEmail();
