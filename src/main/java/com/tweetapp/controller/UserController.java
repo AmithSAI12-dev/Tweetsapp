@@ -22,7 +22,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://54.227.27.85:8080")
 public class UserController {
 
     private final UserService userService;
