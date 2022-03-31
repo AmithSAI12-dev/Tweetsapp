@@ -20,7 +20,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@CrossOrigin(origins = "http://54.227.27.85:3000")
+@CrossOrigin(origins = "http://54.84.169.248:3000")
 public class TweetsController {
 
     private final TweetsService tweetsService;

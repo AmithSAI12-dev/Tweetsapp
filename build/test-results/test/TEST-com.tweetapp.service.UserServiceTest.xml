@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.tweetapp.service.UserServiceTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2022-03-31T09:02:08" hostname="kali" time="0.056">
+<testsuite name="com.tweetapp.service.UserServiceTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2022-03-31T09:52:20" hostname="kali" time="0.065">
   <properties/>
-  <testcase name="testLogin()" classname="com.tweetapp.service.UserServiceTest" time="0.034"/>
+  <testcase name="testLogin()" classname="com.tweetapp.service.UserServiceTest" time="0.04"/>
   <testcase name="testRegisterUser()" classname="com.tweetapp.service.UserServiceTest" time="0.002"/>
   <testcase name="testChangePassword()" classname="com.tweetapp.service.UserServiceTest" time="0.003"/>
   <testcase name="testRetrieveAll_throwsException()" classname="com.tweetapp.service.UserServiceTest" time="0.003"/>
-  <testcase name="testChangePassword_throwsException()" classname="com.tweetapp.service.UserServiceTest" time="0.003"/>
-  <testcase name="testLogin_throwsException()" classname="com.tweetapp.service.UserServiceTest" time="0.004"/>
-  <testcase name="testRetrieveAll()" classname="com.tweetapp.service.UserServiceTest" time="0.004"/>
-  <system-out><![CDATA[2022-03-31 14:32:08.259  INFO 21454 --- [    Test worker] com.tweetapp.service.UserService         : Attempting to login, class com.tweetapp.service.UserService
-2022-03-31 14:32:08.260  INFO 21454 --- [    Test worker] com.tweetapp.service.UserService         : Successfully logged in, class com.tweetapp.service.UserService
-2022-03-31 14:32:08.262  INFO 21454 --- [    Test worker] com.tweetapp.service.UserService         : Attempting to create new user, class com.tweetapp.service.UserService
-2022-03-31 14:32:08.262  INFO 21454 --- [    Test worker] com.tweetapp.service.UserService         : Successfully created user, class com.tweetapp.service.UserService
-2022-03-31 14:32:08.265  INFO 21454 --- [    Test worker] com.tweetapp.service.UserService         : Attempting to change password, class com.tweetapp.service.UserService
-2022-03-31 14:32:08.266  INFO 21454 --- [    Test worker] com.tweetapp.service.UserService         : Successfully changed password , class com.tweetapp.service.UserService
-2022-03-31 14:32:08.269  INFO 21454 --- [    Test worker] com.tweetapp.service.UserService         : Attempting to get all users, class com.tweetapp.service.UserService
-2022-03-31 14:32:08.273  INFO 21454 --- [    Test worker] com.tweetapp.service.UserService         : Attempting to change password, class com.tweetapp.service.UserService
-2022-03-31 14:32:08.277  INFO 21454 --- [    Test worker] com.tweetapp.service.UserService         : Attempting to login, class com.tweetapp.service.UserService
-2022-03-31 14:32:08.281  INFO 21454 --- [    Test worker] com.tweetapp.service.UserService         : Attempting to get all users, class com.tweetapp.service.UserService
-2022-03-31 14:32:08.281  INFO 21454 --- [    Test worker] com.tweetapp.service.UserService         : Successfully retrieved all user, class com.tweetapp.service.UserService
+  <testcase name="testChangePassword_throwsException()" classname="com.tweetapp.service.UserServiceTest" time="0.004"/>
+  <testcase name="testLogin_throwsException()" classname="com.tweetapp.service.UserServiceTest" time="0.003"/>
+  <testcase name="testRetrieveAll()" classname="com.tweetapp.service.UserServiceTest" time="0.005"/>
+  <system-out><![CDATA[2022-03-31 15:22:20.710  INFO 37033 --- [    Test worker] com.tweetapp.service.UserService         : Attempting to login, class com.tweetapp.service.UserService
+2022-03-31 15:22:20.711  INFO 37033 --- [    Test worker] com.tweetapp.service.UserService         : Successfully logged in, class com.tweetapp.service.UserService
+2022-03-31 15:22:20.714  INFO 37033 --- [    Test worker] com.tweetapp.service.UserService         : Attempting to create new user, class com.tweetapp.service.UserService
+2022-03-31 15:22:20.715  INFO 37033 --- [    Test worker] com.tweetapp.service.UserService         : Successfully created user, class com.tweetapp.service.UserService
+2022-03-31 15:22:20.718  INFO 37033 --- [    Test worker] com.tweetapp.service.UserService         : Attempting to change password, class com.tweetapp.service.UserService
+2022-03-31 15:22:20.718  INFO 37033 --- [    Test worker] com.tweetapp.service.UserService         : Successfully changed password , class com.tweetapp.service.UserService
+2022-03-31 15:22:20.722  INFO 37033 --- [    Test worker] com.tweetapp.service.UserService         : Attempting to get all users, class com.tweetapp.service.UserService
+2022-03-31 15:22:20.725  INFO 37033 --- [    Test worker] com.tweetapp.service.UserService         : Attempting to change password, class com.tweetapp.service.UserService
+2022-03-31 15:22:20.730  INFO 37033 --- [    Test worker] com.tweetapp.service.UserService         : Attempting to login, class com.tweetapp.service.UserService
+2022-03-31 15:22:20.734  INFO 37033 --- [    Test worker] com.tweetapp.service.UserService         : Attempting to get all users, class com.tweetapp.service.UserService
+2022-03-31 15:22:20.735  INFO 37033 --- [    Test worker] com.tweetapp.service.UserService         : Successfully retrieved all user, class com.tweetapp.service.UserService
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
