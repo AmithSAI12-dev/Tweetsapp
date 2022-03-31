@@ -24,17 +24,17 @@ services:
       - MONGO_DATABASE=tweetsdb
     depends_on:
       - mongodb
-#   app-client:
-#     build:
-#       context:  ../tweetsreact # Use an image built from the specified dockerfile in the `polling-app-client` directory.
-#       dockerfile: Dockerfile
-#       args:
-#         REACT_APP_API_BASE_URL: http://127.0.0.1:3000
-#     ports:
-#       - "3000:3000" # Map the exposed port 80 on the container to port 9090 on the host machine
-#     restart: always
-#     depends_on:
-#       - api_service
+  app-client:
+    build:
+      context:  ../tweetsreact # Use an image built from the specified dockerfile in the `polling-app-client` directory.
+      dockerfile: Dockerfile
+      args:
+        REACT_APP_API_BASE_URL: http://127.0.0.1:3000
+    ports:
+      - "3000:3000" # Map the exposed port 80 on the container to port 9090 on the host machine
+    restart: always
+    depends_on:
+      - api_service
 volumes:
   data: {}
 
