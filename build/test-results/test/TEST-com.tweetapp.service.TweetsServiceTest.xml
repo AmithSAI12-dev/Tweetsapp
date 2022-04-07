@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.tweetapp.service.TweetsServiceTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2022-03-31T09:52:20" hostname="kali" time="0.178">
+<testsuite name="com.tweetapp.service.TweetsServiceTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2022-04-07T05:28:18" hostname="kali" time="0.129">
   <properties/>
-  <testcase name="testDeleteTweet()" classname="com.tweetapp.service.TweetsServiceTest" time="0.145"/>
-  <testcase name="testUpdateTweet_throwsException()" classname="com.tweetapp.service.TweetsServiceTest" time="0.004"/>
-  <testcase name="testGetTweetsByUser_throwsException()" classname="com.tweetapp.service.TweetsServiceTest" time="0.003"/>
-  <testcase name="testUpdateTweet()" classname="com.tweetapp.service.TweetsServiceTest" time="0.005"/>
-  <testcase name="testGetAllTweets_throwsException()" classname="com.tweetapp.service.TweetsServiceTest" time="0.006"/>
-  <testcase name="testGetAllTweets()" classname="com.tweetapp.service.TweetsServiceTest" time="0.004"/>
+  <testcase name="testDeleteTweet()" classname="com.tweetapp.service.TweetsServiceTest" time="0.107"/>
+  <testcase name="testUpdateTweet_throwsException()" classname="com.tweetapp.service.TweetsServiceTest" time="0.003"/>
+  <testcase name="testGetTweetsByUser_throwsException()" classname="com.tweetapp.service.TweetsServiceTest" time="0.002"/>
+  <testcase name="testUpdateTweet()" classname="com.tweetapp.service.TweetsServiceTest" time="0.003"/>
+  <testcase name="testGetAllTweets_throwsException()" classname="com.tweetapp.service.TweetsServiceTest" time="0.005"/>
+  <testcase name="testGetAllTweets()" classname="com.tweetapp.service.TweetsServiceTest" time="0.003"/>
   <testcase name="testSaveTweet()" classname="com.tweetapp.service.TweetsServiceTest" time="0.002"/>
-  <testcase name="testGetTweetByUser()" classname="com.tweetapp.service.TweetsServiceTest" time="0.003"/>
-  <system-out><![CDATA[2022-03-31 15:22:20.641  INFO 37033 --- [    Test worker] com.tweetapp.service.TweetsService       : Attempting to Update Tweet, class com.tweetapp.service.TweetsService
-2022-03-31 15:22:20.645  INFO 37033 --- [    Test worker] com.tweetapp.service.TweetsService       : Attempting to fetch all tweets by user, class com.tweetapp.service.TweetsService
-2022-03-31 15:22:20.645  INFO 37033 --- [    Test worker] com.tweetapp.service.TweetsService       : No tweets available, class com.tweetapp.service.TweetsService
-2022-03-31 15:22:20.650  INFO 37033 --- [    Test worker] com.tweetapp.service.TweetsService       : Attempting to Update Tweet, class com.tweetapp.service.TweetsService
-2022-03-31 15:22:20.651  INFO 37033 --- [    Test worker] com.tweetapp.service.TweetsService       : Successfully Updated Tweet, class com.tweetapp.service.TweetsService
-2022-03-31 15:22:20.657  INFO 37033 --- [    Test worker] com.tweetapp.service.TweetsService       : Attempting to fetch all tweets, class com.tweetapp.service.TweetsService
-2022-03-31 15:22:20.658  INFO 37033 --- [    Test worker] com.tweetapp.service.TweetsService       : No tweets found, class com.tweetapp.service.TweetsService
-2022-03-31 15:22:20.661  INFO 37033 --- [    Test worker] com.tweetapp.service.TweetsService       : Attempting to fetch all tweets, class com.tweetapp.service.TweetsService
-2022-03-31 15:22:20.662  INFO 37033 --- [    Test worker] com.tweetapp.service.TweetsService       : Successfully retrieved all tweets, class com.tweetapp.service.TweetsService
-2022-03-31 15:22:20.665  INFO 37033 --- [    Test worker] com.tweetapp.service.TweetsService       : Attempting to create new tweet, class com.tweetapp.service.TweetsService
-2022-03-31 15:22:20.665  INFO 37033 --- [    Test worker] com.tweetapp.service.TweetsService       : Successfully created new tweet, class com.tweetapp.service.TweetsService
-2022-03-31 15:22:20.668  INFO 37033 --- [    Test worker] com.tweetapp.service.TweetsService       : Attempting to fetch all tweets by user, class com.tweetapp.service.TweetsService
-2022-03-31 15:22:20.669  INFO 37033 --- [    Test worker] com.tweetapp.service.TweetsService       : Successfully retrieved tweets, class com.tweetapp.service.TweetsService
+  <testcase name="testGetTweetByUser()" classname="com.tweetapp.service.TweetsServiceTest" time="0.002"/>
+  <system-out><![CDATA[2022-04-07 10:58:19.103  INFO 4810 --- [    Test worker] com.tweetapp.service.TweetsService       : Attempting to Update Tweet, class com.tweetapp.service.TweetsService
+2022-04-07 10:58:19.106  INFO 4810 --- [    Test worker] com.tweetapp.service.TweetsService       : Attempting to fetch all tweets by user, class com.tweetapp.service.TweetsService
+2022-04-07 10:58:19.106  INFO 4810 --- [    Test worker] com.tweetapp.service.TweetsService       : No tweets available, class com.tweetapp.service.TweetsService
+2022-04-07 10:58:19.109  INFO 4810 --- [    Test worker] com.tweetapp.service.TweetsService       : Attempting to Update Tweet, class com.tweetapp.service.TweetsService
+2022-04-07 10:58:19.110  INFO 4810 --- [    Test worker] com.tweetapp.service.TweetsService       : Successfully Updated Tweet, class com.tweetapp.service.TweetsService
+2022-04-07 10:58:19.114  INFO 4810 --- [    Test worker] com.tweetapp.service.TweetsService       : Attempting to fetch all tweets, class com.tweetapp.service.TweetsService
+2022-04-07 10:58:19.115  INFO 4810 --- [    Test worker] com.tweetapp.service.TweetsService       : No tweets found, class com.tweetapp.service.TweetsService
+2022-04-07 10:58:19.117  INFO 4810 --- [    Test worker] com.tweetapp.service.TweetsService       : Attempting to fetch all tweets, class com.tweetapp.service.TweetsService
+2022-04-07 10:58:19.118  INFO 4810 --- [    Test worker] com.tweetapp.service.TweetsService       : Successfully retrieved all tweets, class com.tweetapp.service.TweetsService
+2022-04-07 10:58:19.120  INFO 4810 --- [    Test worker] com.tweetapp.service.TweetsService       : Attempting to create new tweet, class com.tweetapp.service.TweetsService
+2022-04-07 10:58:19.120  INFO 4810 --- [    Test worker] com.tweetapp.service.TweetsService       : Successfully created new tweet, class com.tweetapp.service.TweetsService
+2022-04-07 10:58:19.122  INFO 4810 --- [    Test worker] com.tweetapp.service.TweetsService       : Attempting to fetch all tweets by user, class com.tweetapp.service.TweetsService
+2022-04-07 10:58:19.122  INFO 4810 --- [    Test worker] com.tweetapp.service.TweetsService       : Successfully retrieved tweets, class com.tweetapp.service.TweetsService
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
